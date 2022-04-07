@@ -5,7 +5,8 @@ const bodyParser=require('body-parser');
 const mongoose = require('mongoose');
 
 //routes
-const userRoutes=require('./routes/user');
+const authRoutes=require('./routes/auth');
+const adminRoutes=require('./routes/admin/auth');
 
 //environment variables
 env.config();
@@ -29,7 +30,8 @@ mongoose.connect(
 
 
 app.use(bodyParser.json());
-app.use('/api',userRoutes);
+app.use('/api',authRoutes);
+app.use('/api',adminRoutes);
 // app.get('/', (req,res,next)=>{
 //     res.status(200).json({
 //         message:'hello from the server'
