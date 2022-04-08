@@ -2,7 +2,8 @@ const user = require('../models/user');
 const User=require('../models/user');
 const jwt = require("jsonwebtoken");
 exports.signup=(req,res)=>{
-    User.findOne({email:req.body.email})
+
+   User.findOne({email:req.body.email})
     .exec(async(error,user)=>{
         if(user) return res.status(400).json({
             message:'User already registered'
