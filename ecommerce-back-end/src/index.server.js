@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 //routes
 const authRoutes=require('./routes/auth');
 const adminRoutes=require('./routes/admin/auth');
+const categoryRoutes=require('./routes/routes-category');
 
 //environment variables
 env.config();
@@ -32,6 +33,7 @@ mongoose.connect(
 app.use(bodyParser.json());
 app.use('/api',authRoutes);
 app.use('/api',adminRoutes);
+app.use('/api',categoryRoutes);
 // app.get('/', (req,res,next)=>{
 //     res.status(200).json({
 //         message:'hello from the server'
